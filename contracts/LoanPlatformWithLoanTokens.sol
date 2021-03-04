@@ -103,7 +103,7 @@ contract LoanPlatformWithLoanTokens {
         require(requests[index].status != 0, "There is no guarantee to reject!");
         requests[index].status = 0;
         requests[index].guarantorInterest = 0;
-        requests[index].guarantor.transfer(requests[index].sum);
+        token.transfer(requests[index].guarantor, requests[index].sum);
         requests[index].guarantor = address(0);
     }
     
