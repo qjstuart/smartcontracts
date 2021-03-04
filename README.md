@@ -30,8 +30,9 @@ Alternatively using **Ganache**:
 </br>
 
 
-- Install the project dependencies
+- Navigate to the UI directory and install the project dependencies
   
+        $ cd ui/
         $ npm install
 
 - Start the UI on port 3000
