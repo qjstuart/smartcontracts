@@ -14,7 +14,7 @@ contract LoanPlatform {
         uint256 paybackPeriod;
         uint256 guarantorInterest;
         uint256 lenderInterest;
-        uint256 status;             // 0 = has no accepted guarantee, 1 = has an accepted guarantee, 2 = has been provided a loan, 3 = has been paid back by borrower
+        uint256 status;             // 0 = has no accepted guarantee, 1 = has an accepted guarantee, 2 = has been provided a loan, 3 = has been paid back by borrower, 4 = borrower has missed the payback period
     }
 
     modifier indexInRange(uint256 index) {
@@ -79,6 +79,7 @@ contract LoanPlatform {
 
 
     function accept(uint256 index) public indexInRange(index) isBorrower(index) {
+        require(requests[index].status == 0, "The guarantee is already accepted!");
         requests[index].status = 1;
     }
 

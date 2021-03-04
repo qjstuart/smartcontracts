@@ -94,6 +94,7 @@ contract LoanPlatformWithLoanTokens {
     }
 
     function accept(uint256 index) public indexInRange(index) isBorrower(index) {
+        require(requests[index].status == 0, "The guarantee is already accepted!");
         requests[index].status = 1;
     }
 
